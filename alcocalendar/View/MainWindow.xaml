@@ -1,0 +1,87 @@
+﻿<Window x:Class="alcocalendar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:alcocalendar"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Command="{Binding Joke}" Content="Удалить System32" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Content" Value="Удалить System32"/>
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <StringAnimationUsingKeyFrames Storyboard.TargetProperty="Content">
+                                        <DiscreteStringKeyFrame KeyTime="0:0:0" Value="А может не надо?"/>
+                                    </StringAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Button.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <StringAnimationUsingKeyFrames Storyboard.TargetProperty="Content">
+                                        <DiscreteStringKeyFrame KeyTime="0:0:0" Value="Удалить System32"/>
+                                    </StringAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Frame x:Name="pageFrame" Content="" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+        <TextBlock Text="
+      8==> ▄█▀█●
+     " FontSize="15" x:Name="FlyingWord1" Visibility="Visible" Cursor="">
+            <TextBlock.RenderTransform>
+                <TranslateTransform x:Name="FlyingWord1Transform" X="-30"/>
+            </TextBlock.RenderTransform>
+            <TextBlock.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="FlyingWord1Transform" 
+                                             Storyboard.TargetProperty="X"
+                                             From="0" To="300" Duration="0:0:5" RepeatBehavior="Forever" AutoReverse="True"/>
+                            <DoubleAnimation Storyboard.TargetName="FlyingWord1Transform" 
+                                             Storyboard.TargetProperty="Y"
+                                             From="0" To="400" Duration="0:0:5" RepeatBehavior="Forever" AutoReverse="True"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </TextBlock.Triggers>
+        </TextBlock>
+        <TextBlock Text="👃🏻" FontSize="20" x:Name="FlyingWord2" Visibility="Visible">
+            <TextBlock.RenderTransform>
+                <TranslateTransform x:Name="FlyingWord2Transform" X="370"/>
+            </TextBlock.RenderTransform>
+            <TextBlock.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="FlyingWord2Transform" 
+                                             Storyboard.TargetProperty="X"
+                                             From="370" To="0" Duration="0:0:5" RepeatBehavior="Forever" AutoReverse="True"/>
+                            <DoubleAnimation Storyboard.TargetName="FlyingWord2Transform" 
+                                             Storyboard.TargetProperty="Y"
+                                             From="0" To="400" Duration="0:0:5" RepeatBehavior="Forever" AutoReverse="True"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </TextBlock.Triggers>
+        </TextBlock>
+        
+        
+    </Grid>
+    
+
+</Window>
