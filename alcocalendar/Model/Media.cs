@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -11,9 +12,11 @@ namespace alcocalendar.Model
     {
         private SoundPlayer player;
 
-        public Media(string filePath)
+        public Media()
         {
-            this.player = new SoundPlayer(filePath);
+            string exepath = AppDomain.CurrentDomain.BaseDirectory;
+            string path = Directory.GetParent(exepath)?.Parent?.Parent?.Parent?.FullName + "\\Media\\chapa.wav";
+            this.player = new SoundPlayer(path);
         }
 
         public void Play()

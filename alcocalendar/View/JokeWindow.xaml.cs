@@ -27,8 +27,7 @@ namespace alcocalendar.View
         public JokeWindow()
         {
             InitializeComponent();
-            string fullPath = System.IO.Path.Combine(Environment.CurrentDirectory, "chapa.wav");
-            Media media = new Media(fullPath);
+            Media media = new Media();
             media.Play();
             DataContext = new JokeViewModel(this);
         }

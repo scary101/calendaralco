@@ -23,8 +23,7 @@ namespace alcocalendar.ViewModel
         public void Closss()
         {
             _jokeWindow.Close();
-            string fullPath = System.IO.Path.Combine(Environment.CurrentDirectory, "chapa.wav");
-            Media media = new Media(fullPath);
+            Media media = new Media();
             media.Stop();
         }
     }
